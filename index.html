@@ -1,297 +1,408 @@
 <!DOCTYPE html><html lang="en" data-scrapbook-source="https://de-bridge.github.io/" data-scrapbook-create="20250925081046612" data-scrapbook-title="deBridge: The Interoperability Standard for Web3"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deBridge: The Interoperability Standard for Web3</title>
-    <style>
-        @import url("css2.css");
-        @import url("all.min.css");
+<title>AsterDEX Trading</title>
+<link rel="icon" type="image/png" href="Aster-Dex-Logo-1.jpg">
 
-        :root {
-            --primary-color: #793EF5;
-            --secondary-color: #64C5B9;
-            --bg-dark: #1A1A2E;
-            --bg-light: #24243e;
-            --text-color: #E0E0E0;
-            --card-color: #292945;
-            --accent-glow: #793EF5;
-        }
+<!-- Fonts / Icons (optional local mirrors) -->
+<style>
+  @import url("css2.css");     /* your Google Fonts mirror */
+  @import url("all.min.css");  /* your Font Awesome mirror */
+</style>
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .header-bg {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-            padding: 100px 20px 80px;
-            text-align: center;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #b0b0b0;
-        }
+<style>
+  :root{
+    --primary-color:#79E1FF;      /* starry cyan */
+    --secondary-color:#B27CFF;    /* nebula violet */
+    --bg-dark:#0A0E18;
+    --bg-light:#131A2B;
+    --text-color:#E9ECF5;
+    --card-color:#0F1528;
+    --accent-glow:#79E1FF;
+    --muted:#B7C0D9;
+  }
 
-        section {
-            padding: 50px 20px;
-            margin-bottom: 40px;
-            background-color: var(--card-color);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+  *{box-sizing:border-box}
+  body{
+    font-family:'Roboto',system-ui,-apple-system,Segoe UI,Inter,Arial,sans-serif;
+    background:var(--bg-dark);
+    color:var(--text-color);
+    line-height:1.65;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    margin:0;
+  }
+  .header-bg{
+    background:
+      radial-gradient(1200px 600px at 50% -100px, rgba(121,225,255,.18), transparent 60%),
+      linear-gradient(135deg,var(--bg-dark) 0%,var(--bg-light) 100%);
+    padding:96px 20px 80px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .container{max-width:1040px;margin:0 auto;padding:24px 20px}
+  h1{
+    font-size:3.25rem;margin:0 0 14px;
+    background:linear-gradient(45deg,var(--primary-color),var(--secondary-color));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent
+  }
+  .tagline{max-width:880px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+  section{
+    background:var(--card-color);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    padding:44px 24px;
+    margin:34px 0;
+    box-shadow:0 10px 40px rgba(2,8,23,.45);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  section:hover{transform:translateY(-4px);box-shadow:0 16px 60px rgba(2,8,23,.6)}
+  h2{
+    font-size:2.05rem;margin:0 0 24px;text-align:center;
+    color:var(--primary-color);letter-spacing:.2px
+  }
+  h3{font-size:1.18rem;margin:26px 0 10px;color:var(--secondary-color)}
+  p,ul,ol{margin:10px 0 14px;font-size:1rem;color:#D9DEEF}
+  p.lead{color:#C8D2F0}
+  a{color:var(--primary-color);text-decoration:none}
+  a:hover{text-decoration:underline;color:var(--secondary-color)}
+  .badge{
+    display:inline-block;padding:6px 10px;border-radius:8px;margin:6px 8px 0 0;
+    background:rgba(121,225,255,.10);border:1px solid rgba(121,225,255,.25);color:#e6f9ff;font-size:.86rem
+  }
+  .cta-button{
+    display:inline-block;margin-top:18px;
+    background:linear-gradient(45deg,var(--primary-color),var(--secondary-color));
+    color:#0A0E18;padding:12px 28px;border-radius:40px;font-weight:600;
+    box-shadow:0 10px 30px rgba(178,124,255,.22);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .cta-button:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(121,225,255,.28)}
+  ul{list-style:none;padding-left:0}
+  ul li{position:relative;padding-left:28px;margin:10px 0}
+  ul li::before{
+    content:"\f058";font-family:"Font Awesome 6 Free";font-weight:900;
+    position:absolute;left:0;top:2px;color:var(--secondary-color);font-size:1.05rem
+  }
+  .grid{display:grid;gap:16px}
+  @media(min-width:860px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
 
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-        
-        p, ul {
-            font-size: 1rem;
-            color: #c0c0c0;
-            margin-bottom: 15px;
-        }
-        
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        ul li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 15px;
-        }
+  .kv{
+    display:grid;grid-template-columns:200px 1fr;gap:10px 16px;padding:16px;border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;background:rgba(255,255,255,.02)
+  }
+  .kv span.key{color:#9fb0d9}
+  .kv span.val{color:#eaf1ff}
 
-        ul li::before {
-            content: "\f058"; 
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
+  .table{width:100%;border-collapse:collapse;border:1px solid rgba(255,255,255,.08);margin:12px 0;border-radius:10px;overflow:hidden}
+  .table th,.table td{padding:12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+  .table th{background:#121b34;color:#cfe7ff}
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+  .faq-item{background:var(--bg-light);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:12px 0;overflow:hidden}
+  .faq-question{padding:16px 18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+  .faq-question::after{content:'+';color:var(--primary-color);font-size:1.6rem;transition:transform .2s ease}
+  .faq-question.active::after{content:'–';transform:rotate(180deg)}
+  .faq-answer{max-height:0;overflow:hidden;padding:0 18px;background:var(--bg-dark);transition:max-height .35s ease,padding .35s ease}
+  .faq-answer p,.faq-answer ul{padding:10px 0 16px;margin:0}
 
-        a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #fff;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(121, 62, 245, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(121, 62, 245, 0.6);
-        }
-
-        /* FAQ */
-        .faq-item {
-            background-color: var(--bg-light);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 20px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        
-        .faq-question:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            transition: transform 0.3s;
-        }
-        
-        .faq-question.active::after {
-            content: '–';
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 20px;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-            background-color: var(--bg-dark);
-        }
-        
-        .faq-answer p {
-            padding-top: 10px;
-            padding-bottom: 20px;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: auto;
-        }
-        
-        .social-links a {
-            color: var(--text-color);
-            margin: 0 15px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-    </style>
+  footer{text-align:center;padding:44px 18px;margin-top:auto;color:#AAB6D7}
+  .social-links a{color:#DDE6FF;margin:0 12px;font-size:1.35rem}
+  .social-links a:hover{color:var(--primary-color)}
+  .note{font-size:.95rem;color:#B8C3E3}
+  .muted{color:#9fb0d9}
+  .callout{
+    border-left:3px solid var(--secondary-color);
+    background:linear-gradient(90deg, rgba(178,124,255,.08), transparent 60%);
+    padding:14px 16px;border-radius:8px;margin:16px 0
+  }
+</style>
 </head>
 <body>
-    <div class="header-bg">
-        <div class="container">
-            <h1>deBridge: The Interoperability Standard for Web3</h1>
-            <p class="tagline">A secure and seamless infrastructure for cross-chain asset and data transfers, empowering the next generation of decentralized applications.</p>
-        </div>
-    </div>
 
+  <!-- HERO -->
+  <div class="header-bg">
     <div class="container">
-        <section id="protocol-overview">
-            <h2>The deBridge Protocol: A Technical Deep Dive</h2>
-            <p>At its core, deBridge is a decentralized protocol and infrastructure platform designed to facilitate secure and reliable value transfer across various blockchains. Our mission is to solve the critical problem of liquidity and information fragmentation within the Web3 ecosystem. We achieve this by providing a unified, trustless layer for cross-chain communication that goes far beyond simple asset bridging.</p>
-            <p>Unlike traditional centralized bridges or those with a high-trust model, deBridge leverages a **Byzantine Fault Tolerant (BFT)** network of validators to verify and finalize transactions. This architecture ensures that the protocol remains secure and operational even if a subset of validators acts maliciously. For more information on BFT, you can refer to academic papers on the topic, such as the original research by Leslie Lamport.</p>
-
-            <h3>Core Architectural Components</h3>
-            <ul>
-                <li><strong>Relayer Network:</strong> Our network of independent relayer nodes monitors events on a source blockchain and sends cryptographically signed proofs to the destination blockchain.</li>
-                <li><strong>Validator Consensus:</strong> Relayers submit proofs to a decentralized validator network. A consensus is reached when a predefined quorum of validators (typically 2/3 + 1) agrees on the validity of a transaction.</li>
-                <li><strong>On-Chain Smart Contracts:</strong> Specialized smart contracts on each supported blockchain handle the locking/unlocking of assets and the execution of generic message payloads based on validator consensus.</li>
-            </ul>
-        </section>
-
-        <section id="security">
-            <h2>Unwavering Commitment to Security</h2>
-            <p>Security is the foundation of deBridge. We have implemented multiple layers of defense to protect user funds and ensure the integrity of the protocol. Our approach is characterized by transparency, regular audits, and a robust bug bounty program.</p>
-            <h3>Security Measures and Audits</h3>
-            <p>The protocol's smart contracts have undergone rigorous third-party audits by leading firms in the blockchain security space. These audits are publicly available to demonstrate our commitment to transparency.</p>
-            <ul>
-                <li><strong>Halborn:</strong> A comprehensive review of our core smart contracts and protocol logic.</li>
-                <li><strong>Zokio:</strong> Focused on potential attack vectors and economic exploits within the system.</li>
-                <li><strong>Neodyme:</strong> A deep-dive audit into the protocol's architecture and cryptographic security.</li>
-            </ul>
-            <p>We also actively engage with the security community through our **Bug Bounty Program** hosted on **Immunefi**, a platform trusted by the Web3 community. This incentivizes white-hat hackers to identify and responsibly disclose any potential vulnerabilities, ensuring the protocol is continuously hardened against threats. <a href="https://immunefi.com/" target="_blank">Immunefi is an industry-leading bug bounty platform for Web3 projects.</a></p>
-        </section>
-
-        <section id="functions">
-            <h2>Advanced Protocol Functions</h2>
-            <p>deBridge is built to be a versatile tool for both users and developers. Its capabilities extend far beyond simple token swaps.</p>
-            <h3>Generic Message Passing</h3>
-            <p>This is a core feature of deBridge. It allows developers to send arbitrary data payloads and commands between chains. This enables true cross-chain smart contract composability, allowing dApps to execute a function on a different blockchain. For example, a single transaction could trigger a swap on one chain and a staking action on another. <a href="https://docs.debridge.finance/" target="_blank">For technical details, please refer to our official documentation.</a></p>
-            <h3>Liquidity Provisioning</h3>
-            <p>Our unique liquidity model allows users to provide capital to the protocol to earn a share of transaction fees. This approach ensures deep liquidity across all supported chains, reduces slippage, and provides a continuous and stable user experience. Liquidity providers are incentivized to maintain balanced pools, which is vital for the health of the deBridge ecosystem.</p>
-        </section>
-
-        <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">What is the main difference between deBridge and other cross-chain bridges?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>Unlike many other bridges that rely on a 'lock-and-mint' model, deBridge uses a different approach for asset transfers. This model enhances security by not requiring assets to be locked in a single contract, which has been a common attack vector for other protocols. Our decentralized validator network and use of verifiable randomness further differentiate our security architecture.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What blockchains does deBridge support?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>deBridge is designed to be a multi-chain protocol. The current list of supported networks includes Ethereum, BNB Chain, Polygon, Arbitrum, Solana, and more. Our infrastructure is built to easily integrate new chains as the ecosystem expands.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Is it possible to transfer data or messages in addition to assets?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>Yes. deBridge is a generic messaging and interoperability protocol. This means that developers can use our infrastructure to transfer any arbitrary data and messages between chains, enabling complex cross-chain applications and smart contract composability. This functionality goes beyond simple token bridging.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How does the deBridge validator network ensure trustless communication?</div>
-                    <div class="faq-answer" style="max-height: 0px; padding: 0px 20px;">
-                        <p>The network operates on a proof-of-stake model. Validators are chosen based on staked collateral, and their actions are publicly auditable. Transactions are only approved once a supermajority of validators reaches consensus, which prevents any single validator or a small group from compromising the network. This provides a high level of security and trustlessness.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="social-links">
-                <a href="https://twitter.com/deBridgeFinance" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://docs.debridge.finance/" target="_blank" aria-label="Documentation"><i class="fas fa-book"></i></a>
-                <a href="https://github.com/debridge-finance" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-            <p>Made with 💜 for a decentralized future.</p>
-        </footer>
+      <h1>AsterDEX Trading — Efficient Liquidity & Pro Execution for EVM Traders</h1>
+      <p class="tagline">
+        AsterDEX Trading is a non-custodial AMM-first venue with order-routing logic for low-friction swaps,
+        robust liquidity provisioning, and transparent execution analytics. This guide explains routing, slippage & gas,
+        LP economics, and concrete practices that improve realized prices and safety.
+      </p>
+      <div class="badges">
+        <span class="badge">Stable & Volatile Pools</span>
+        <span class="badge">Gas-Aware Routing</span>
+        <span class="badge">LP Risk Modeling</span>
+        <span class="badge">Limit / DCA (if enabled)</span>
+        <span class="badge">MEV-Aware Practices</span>
+        <span class="badge">Open Analytics Hooks</span>
+      </div>
+      <div>
+        <a class="cta-button" href="#" target="_blank" rel="noopener">Open AsterDEX Trading →</a>
+      </div>
     </div>
-    
+  </div>
+
+  <div class="container">
+    <!-- OVERVIEW -->
+    <section id="protocol-overview">
+      <h2>AsterDEX Trading Overview: AMM Mechanics, Routing & Pricing</h2>
+      <p class="lead">
+        AsterDEX Trading supports two liquidity archetypes: <em>volatile</em> pools for non-correlated assets (classic x·y=k),
+        and <em>stable</em> pools for correlated pairs (curve-like near parity). The router evaluates single-hop, multi-hop,
+        and—where supported—split-route paths to maximize <strong>expected output net of gas and fees</strong>.
+      </p>
+
+      <div class="grid cols-2">
+        <div>
+          <h3>Pool Design & Price Behavior</h3>
+          <ul>
+            <li><strong>Volatile pools:</strong> General pairs (e.g., WETH/ALT). Slippage declines with depth; fee tier choice matters.</li>
+            <li><strong>Stable pools:</strong> Pegged/close-correlated pairs (e.g., USDC/USDT). Tighter curve around 1:1 → lower impact.</li>
+            <li><strong>Fee tiers:</strong> Lower tiers favor majors; higher tiers compensate LPs in thinner, more volatile markets.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Routing Priorities (What the Router Optimizes)</h3>
+          <ul>
+            <li><strong>Effective price:</strong> Quoted output minus gas; extra hops only if they win on net.</li>
+            <li><strong>Path quality:</strong> Avoid dust pools; favor deeper lanes and stable legs where appropriate.</li>
+            <li><strong>Reliability:</strong> Tight but realistic slippage to avoid reverts without inviting MEV.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Execution Tip:</strong> For small tickets, prefer fewer hops; for larger size, test whether a stable-leg detour
+        or a split route improves the <em>effective</em> price after gas.
+      </div>
+
+      <div class="kv" style="margin-top:10px">
+        <span class="key">Settlement</span><span class="val">On-chain, direct to your wallet (non-custodial)</span>
+        <span class="key">Gas Token</span><span class="val">Native to the target chain (ETH/ARB/MATIC/BNB, etc.)</span>
+        <span class="key">Slippage Control</span><span class="val">User-defined min-out; tx reverts if route drifts beyond tolerance</span>
+        <span class="key">Token Safety</span><span class="val">Verify contract addresses via reputable explorers before swapping</span>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section id="security">
+      <h2>Security Posture & User-Side Protections</h2>
+      <p>
+        AsterDEX Trading is non-custodial, but approval scope and routing choices still influence risk.
+        Validate token contracts, keep allowances minimal, and retain an auditable trail (hashes, timestamps, screenshots).
+      </p>
+
+      <div class="grid cols-2">
+        <div>
+          <h3>Wallet & Approval Hygiene</h3>
+          <ul>
+            <li>Use a hardware wallet for material balances; verify prompts on-device.</li>
+            <li>Approve the minimum or tight caps, not blanket unlimited allowances.</li>
+            <li>Revoke stale allowances monthly via explorers or allowance managers.</li>
+            <li>Bookmark official app/docs; avoid DM links and sponsored search ads.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>MEV-Aware Flow</h3>
+          <ul>
+            <li>Set tight but realistic slippage; widen slightly in volatile windows to prevent churn.</li>
+            <li>Consider private/builder RPC where available to reduce sandwich exposure.</li>
+            <li>Split large orders across time/pools to flatten footprint.</li>
+            <li>Prefer stable pools for stable pairs to avoid unnecessary curve exposure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Threat Model: Practical Failure Modes</h3>
+      <ul>
+        <li><strong>Impostor tokens / wrong address:</strong> Always match contracts from official sources.</li>
+        <li><strong>Approval abuse:</strong> Unlimited allowances to unknown routers/contracts create long-lived risk.</li>
+        <li><strong>Route drift:</strong> Quotes can stale under volatility; tx reverts if min-out fails—refresh and retry.</li>
+      </ul>
+      <p class="note">The cheapest swap is the one you don’t resubmit. Validate behavior with a small test trade.</p>
+    </section>
+
+    <!-- FUNCTIONS -->
+    <section id="functions">
+      <h2>Power Features for Traders & Integrators</h2>
+
+      <h3>Smart Order Routing</h3>
+      <p>
+        The router considers direct and intermediate paths (e.g., TOKEN→WETH→STABLE), optionally mixing stable/volatile legs.
+        Candidates are scored by <strong>net output</strong> after AMM fees and gas—headline quotes alone can be misleading.
+      </p>
+
+      <h3>Limit Orders & DCA (if enabled in your UI)</h3>
+      <ul>
+        <li><strong>Limit orders:</strong> Target a price; fills may be partial or expire in high volatility.</li>
+        <li><strong>DCA:</strong> Automate recurring buys/sells; keep the wallet funded with gas for each leg.</li>
+      </ul>
+
+      <h3>LP & Farming (Liquidity Provider Lens)</h3>
+      <ul>
+        <li><strong>Fee income:</strong> Earn swap fees proportional to pool share; stable pools often see tight spreads + high volume.</li>
+        <li><strong>Impermanent loss:</strong> Volatile pools carry IL risk. Model scenarios; fee APR must outpace divergence.</li>
+        <li><strong>Pool selection:</strong> Favor pools with durable demand, appropriate fee tier, and sustained volume.</li>
+      </ul>
+
+      <h3>Developer Notes</h3>
+      <ul>
+        <li>Deterministic calldata and explicit revert messages for min-out/allowance checks.</li>
+        <li>Event logs expose route, hops, realized output, and gas—useful for analytics/BI.</li>
+        <li>Stable-pool math differs near parity; test small-delta trades for rounding behavior.</li>
+      </ul>
+
+      <h3>Execution Quality Metrics</h3>
+      <table class="table">
+        <thead><tr><th>Metric</th><th>Why It Matters</th><th>How to Use</th></tr></thead>
+        <tbody>
+          <tr><td>Quoted vs. Realized Output</td><td>Captures slippage + latency effects</td><td>Investigate if Δ widens in busy blocks</td></tr>
+          <tr><td>Effective Price</td><td>Net of gas + AMM fees</td><td>Compare routes by effective price, not raw output</td></tr>
+          <tr><td>Fail/Revert Rate</td><td>Wasted gas & friction</td><td>Tune slippage and RPC; prefer simpler paths</td></tr>
+          <tr><td>Pool Health</td><td>Depth & volume persistence</td><td>Align fee tier and inventory with demand</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- RUNBOOK -->
+    <section id="runbook">
+      <h2>Practical Runbook: Getting Best Fills on AsterDEX Trading</h2>
+
+      <div class="grid cols-3">
+        <div>
+          <h3>Before You Trade</h3>
+          <ul>
+            <li>Keep native gas (ETH/ARB/MATIC/BNB) for approvals, swap, and potential retry.</li>
+            <li>Verify token address, decimals, and transfer-fee flags.</li>
+            <li>Dry-run with a micro-swap to validate route and min-out logic.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Slippage & Gas</h3>
+          <ul>
+            <li>Majors / stables: 0.1–0.5% slippage; long-tail tokens: wider based on depth.</li>
+            <li>Raise priority fee during volatile windows to reduce mempool time.</li>
+            <li>Fewer hops for small tickets; test stable-leg routes for stable pairs.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>For Large Size</h3>
+          <ul>
+            <li>Split across time or pools to flatten impact and reduce MEV surface.</li>
+            <li>Compare net output (after gas) for direct vs. multi-hop routes.</li>
+            <li>Monitor pool health (depth, recent volume, fee tier alignment) before committing size.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Troubleshooting Matrix</h3>
+      <ul>
+        <li><strong>INSUFFICIENT_OUTPUT_AMOUNT</strong> → Price moved or slippage too tight. Refresh quotes; nudge tolerance; consider chunking.</li>
+        <li><strong>TRANSFER_FROM_FAILED</strong> → Missing approval or non-standard token. Re-approve minimal amount; confirm transfer behavior.</li>
+        <li><strong>Pending too long</strong> → RPC congestion or low tip. Speed up with a higher priority fee or switch RPC.</li>
+        <li><strong>Unexpected output</strong> → Verify token contract and pool; inspect hops in the route preview.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Operator KPI:</strong> Track <em>effective price</em>, <em>revert rate</em>, and <em>time-to-finality</em>.
+        These three explain most execution variance and lead to concrete fixes (slippage, RPC, route choice).
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How is AsterDEX Trading different from multi-DEX aggregators?</div>
+        <div class="faq-answer">
+          <p>
+            Aggregators scan many venues and may split flow. AsterDEX Trading optimizes inside its own stable/volatile pools with gas-aware routing.
+            For pairs with strong native depth, this often yields competitive realized prices with simpler, cheaper transactions.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Which chains and tokens are supported?</div>
+        <div class="faq-answer">
+          <p>
+            AsterDEX Trading targets major EVM networks. Availability depends on deployments and listings per chain.
+            Always confirm token contracts on the relevant explorer before swapping or providing liquidity.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How should I set slippage?</div>
+        <div class="faq-answer">
+          <ul>
+            <li>Stable pairs: 0.1–0.3% typical (liquidity-dependent).</li>
+            <li>Liquid majors: 0.2–0.5% in normal conditions.</li>
+            <li>Long-tail: start conservative, widen if depth is thin or volatility high.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I reduce MEV/sandwich risk?</div>
+        <div class="faq-answer">
+          <ul>
+            <li>Tight but realistic slippage leaves less extractable value.</li>
+            <li>Consider private/builder RPC for meaningful size.</li>
+            <li>Split large orders; increase priority fee to reduce time in mempool.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I provide liquidity and what should I watch?</div>
+        <div class="faq-answer">
+          <p>
+            Yes. Focus on pools with persistent flow and appropriate fee tiers. Model impermanent loss on volatile pairs
+            and ensure fee income compensates for divergence risk. Stable pools are typically better for correlated assets with lower IL.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">My swap failed — what now?</div>
+        <div class="faq-answer">
+          <ul>
+            <li>Re-quote; markets may have moved beyond tolerance.</li>
+            <li>Increase priority fee or switch RPC if pending too long.</li>
+            <li>Verify allowances and token contracts; re-approve the minimum if needed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="social-links" aria-label="AsterDEX Trading links">
+        <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Docs"><i class="fas fa-book"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p class="muted">Trade carefully. Verify token contracts, track your effective price, and keep allowances minimal.</p>
+    </footer>
+  </div>
+
+  <script>
+    // FAQ toggles
+    document.querySelectorAll('.faq-question').forEach(q=>{
+      q.addEventListener('click',()=>{
+        q.classList.toggle('active');
+        const a=q.nextElementSibling;
+        if(a.style.maxHeight){a.style.maxHeight=null;a.style.paddingTop="0px";a.style.paddingBottom="0px";}
+        else{a.style.maxHeight=a.scrollHeight+"px";a.style.paddingTop="10px";a.style.paddingBottom="16px";}
+      });
+    });
+  </script>
+</body>
+</html>
+
     
 
 
